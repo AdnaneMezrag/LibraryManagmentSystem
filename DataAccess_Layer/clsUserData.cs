@@ -259,5 +259,61 @@ SecondName = @SecondName
 
         }
 
+
+    public static bool GetUserByUserNameAndPassword(ref int UserID, string UserName, string Password, ref bool IsActive, ref string FirstName, ref string SecondName)
+    {
+        bool isFound = false;
+
+        SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+        string query = @"select *from [user]
+where UserName = @UserName and Password = @Password
+";
+
+
+        SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@UserName", UserName);
+        command.Parameters.AddWithValue("@Password", Password);
+
+            try
+            {
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+
+                // The record was found
+                isFound = true;
+
+                UserID = (int)reader["UserID"];
+                IsActive = (bool)reader["IsActive"];
+                FirstName = (string)reader["FirstName"];
+                SecondName = (string)reader["SecondName"];
+
+            }
+            else
+            {
+                // The record was not found
+                isFound = false;
+            }
+
+            reader.Close();
+
+
+        }
+        catch (Exception ex)
+        {
+            //Console.WriteLine("Error: " + ex.Message);
+            isFound = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        return isFound;
+    }
+
     }
 }

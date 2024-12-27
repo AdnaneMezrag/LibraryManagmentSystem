@@ -225,7 +225,7 @@
             this.btnPopular.Size = new System.Drawing.Size(220, 45);
             this.btnPopular.TabIndex = 9;
             this.btnPopular.Text = "Popular books";
-            this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click_1);
+            //this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click_1);
             // 
             // btnSearch
             // 

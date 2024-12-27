@@ -290,5 +290,68 @@ Messages = @Messages
 
         }
 
+
+    public static bool GetMemberByMemberIDAndPassword(int MemberID, ref string FirstName, ref string SecondName, ref DateTime DateOfBirth, ref string PhoneNumber, ref bool Sex, string Password, ref string Email, ref string Messages)
+    {
+        bool isFound = false;
+
+        SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+        string query = @"select *from Member
+where MemberID = @MemberID and Password = @Password";
+
+
+        SqlCommand command = new SqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@MemberID", MemberID);
+        command.Parameters.AddWithValue("@Password", Password);
+
+            try
+            {
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+
+                // The record was found
+                isFound = true;
+
+                FirstName = (string)reader["FirstName"];
+                SecondName = (string)reader["SecondName"];
+                DateOfBirth = (DateTime)reader["DateOfBirth"];
+                PhoneNumber = (string)reader["PhoneNumber"];
+                Sex = (bool)reader["Sex"];
+                Email = (string)reader["Email"];
+
+                if (reader["Messages"] == DBNull.Value)
+                    Messages = "";
+                else
+                    Messages = (string)reader["Messages"];
+
+
+            }
+            else
+            {
+                // The record was not found
+                isFound = false;
+            }
+
+            reader.Close();
+
+
+        }
+        catch (Exception ex)
+        {
+            //Console.WriteLine("Error: " + ex.Message);
+            isFound = false;
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        return isFound;
+    }
+
     }
 }

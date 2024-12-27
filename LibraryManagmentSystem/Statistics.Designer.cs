@@ -129,7 +129,7 @@
             this.btnStatistics.Size = new System.Drawing.Size(220, 45);
             this.btnStatistics.TabIndex = 8;
             this.btnStatistics.Text = "Statistics";
-            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click_1);
+          //  this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click_1);
             // 
             // btnPopular
             // 
@@ -146,7 +146,7 @@
             this.btnPopular.Size = new System.Drawing.Size(220, 45);
             this.btnPopular.TabIndex = 9;
             this.btnPopular.Text = "Popular books";
-            this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click_1);
+            //this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click_1);
             // 
             // btnSearch
             // 
@@ -163,7 +163,7 @@
             this.btnSearch.Size = new System.Drawing.Size(217, 45);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
+           // this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // Statistics
             // 
