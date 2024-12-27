@@ -33,16 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1_left = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.btnStatistics = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPopular = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2_top = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1_left.SuspendLayout();
             this.guna2Panel2_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -51,109 +51,68 @@
             // guna2Panel1_left
             // 
             this.guna2Panel1_left.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1_left.Controls.Add(this.guna2TextBox5);
-            this.guna2Panel1_left.Controls.Add(this.guna2TextBox4);
-            this.guna2Panel1_left.Controls.Add(this.guna2TextBox2);
-            this.guna2Panel1_left.Controls.Add(this.guna2TextBox3);
+            this.guna2Panel1_left.Controls.Add(this.btnSearch);
+            this.guna2Panel1_left.Controls.Add(this.btnSettings);
+            this.guna2Panel1_left.Controls.Add(this.btnStatistics);
+            this.guna2Panel1_left.Controls.Add(this.btnPopular);
             this.guna2Panel1_left.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1_left.FillColor = System.Drawing.Color.White;
             this.guna2Panel1_left.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1_left.Name = "guna2Panel1_left";
             this.guna2Panel1_left.Size = new System.Drawing.Size(220, 754);
             this.guna2Panel1_left.TabIndex = 0;
+            this.guna2Panel1_left.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_left_Paint);
             // 
-            // guna2TextBox5
+            // btnSettings
             // 
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "Settings";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox5.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2TextBox5.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2TextBox5.Location = new System.Drawing.Point(0, 249);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PasswordChar = '\0';
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(229, 48);
-            this.guna2TextBox5.TabIndex = 6;
+            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSettings.FillColor = System.Drawing.Color.White;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSettings.ForeColor = System.Drawing.Color.Gray;
+            this.btnSettings.Location = new System.Drawing.Point(-3, 279);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.PressedColor = System.Drawing.Color.Blue;
+            this.btnSettings.Size = new System.Drawing.Size(223, 45);
+            this.btnSettings.TabIndex = 5;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // guna2TextBox4
+            // btnStatistics
             // 
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "Statistics";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2TextBox4.Location = new System.Drawing.Point(0, 204);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(229, 48);
-            this.guna2TextBox4.TabIndex = 5;
+            this.btnStatistics.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStatistics.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStatistics.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStatistics.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStatistics.FillColor = System.Drawing.Color.White;
+            this.btnStatistics.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnStatistics.ForeColor = System.Drawing.Color.Gray;
+            this.btnStatistics.Location = new System.Drawing.Point(0, 228);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.PressedColor = System.Drawing.Color.Blue;
+            this.btnStatistics.Size = new System.Drawing.Size(220, 45);
+            this.btnStatistics.TabIndex = 5;
+            this.btnStatistics.Text = "Statistics";
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
-            // guna2TextBox2
+            // btnPopular
             // 
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "Search";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox2.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2TextBox2.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2TextBox2.Location = new System.Drawing.Point(0, 111);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(229, 48);
-            this.guna2TextBox2.TabIndex = 2;
-            this.guna2TextBox2.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged_1);
-            // 
-            // guna2TextBox3
-            // 
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "Popular Books";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox3.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2TextBox3.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2TextBox3.Location = new System.Drawing.Point(0, 158);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(229, 48);
-            this.guna2TextBox3.TabIndex = 4;
+            this.btnPopular.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPopular.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPopular.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPopular.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPopular.FillColor = System.Drawing.Color.White;
+            this.btnPopular.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPopular.ForeColor = System.Drawing.Color.Gray;
+            this.btnPopular.Location = new System.Drawing.Point(0, 177);
+            this.btnPopular.Name = "btnPopular";
+            this.btnPopular.PressedColor = System.Drawing.Color.Blue;
+            this.btnPopular.Size = new System.Drawing.Size(220, 45);
+            this.btnPopular.TabIndex = 5;
+            this.btnPopular.Text = "Popular books";
+            this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click);
             // 
             // guna2Panel2_top
             // 
@@ -275,6 +234,23 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch.FillColor = System.Drawing.Color.White;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSearch.ForeColor = System.Drawing.Color.Gray;
+            this.btnSearch.Location = new System.Drawing.Point(0, 126);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.PressedColor = System.Drawing.Color.Blue;
+            this.btnSearch.Size = new System.Drawing.Size(220, 45);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -305,10 +281,10 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2Button btnSettings;
+        private Guna.UI2.WinForms.Guna2Button btnStatistics;
+        private Guna.UI2.WinForms.Guna2Button btnPopular;
+        private Guna.UI2.WinForms.Guna2Button btnSearch;
     }
 }
