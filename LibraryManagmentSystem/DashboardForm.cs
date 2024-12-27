@@ -60,5 +60,63 @@ namespace LibraryManagmentSystem
         {
 
         }
+
+        private void guna2Panel1_left_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            // Create an instance of DashboardForm
+            DashboardForm dashboardForm = new DashboardForm();
+
+            // Hide the current form
+            this.Hide();
+
+            // Show the DashboardForm
+            dashboardForm.Show();
+
+        }
+
+        private void btnPopular_Click(object sender, EventArgs e)
+        {
+            // Create an instance of PopularForm
+            PopularForm popularForm = new PopularForm();
+
+            // Hide the current form
+            this.Hide();
+
+            // Show the PopularForm
+            popularForm.Show();
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            // Create an instance of StatisticsForm
+            Statistics statisticsForm = new Statistics();
+
+            // Hide the current form
+            this.Hide();
+
+            // Show the StatisticsForm
+            statisticsForm.Show();
+        }
+
+        
     }
 }
