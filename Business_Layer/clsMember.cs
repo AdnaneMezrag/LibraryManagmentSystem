@@ -110,5 +110,26 @@ namespace Business_Layer{
 
     }
 
+
+    public static clsMember Find(int MemberID,string Password)
+    {
+        string FirstName = "";
+        string SecondName = "";
+        DateTime DateOfBirth = DateTime.Now;
+        string PhoneNumber = "";
+        bool Sex = false;
+        string Email = "";
+        string Messages = "";
+
+        bool IsFound = clsMemberData.GetMemberByMemberIDAndPassword(
+            MemberID, ref FirstName, ref SecondName, ref DateOfBirth, ref PhoneNumber, ref Sex, Password, ref Email, ref Messages);
+
+        if (IsFound)
+        {
+            return new clsMember(MemberID, FirstName, SecondName, DateOfBirth, PhoneNumber, Sex, Password, Email, Messages);
+        }
+        else { return null; }
+    }
+
     }
 }

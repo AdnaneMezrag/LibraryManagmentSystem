@@ -226,13 +226,22 @@
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(345, 6);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(216, 40);
-            this.guna2HtmlLabel1.TabIndex = 5;
-            this.guna2HtmlLabel1.Text = "Popular Books";
+
+            this.btnPopular.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPopular.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPopular.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPopular.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPopular.FillColor = System.Drawing.Color.White;
+            this.btnPopular.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPopular.ForeColor = System.Drawing.Color.Gray;
+            this.btnPopular.Location = new System.Drawing.Point(0, 197);
+            this.btnPopular.Name = "btnPopular";
+            this.btnPopular.PressedColor = System.Drawing.Color.Blue;
+            this.btnPopular.Size = new System.Drawing.Size(220, 45);
+            this.btnPopular.TabIndex = 9;
+            this.btnPopular.Text = "Popular books";
+            //this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click_1);
+
             // 
             // guna2HtmlLabel2
             // 

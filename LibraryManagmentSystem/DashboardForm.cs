@@ -16,18 +16,17 @@ namespace LibraryManagmentSystem
         public DashboardForm()
         {
             InitializeComponent();
-            LoadBooks();
-            /////
+
         }
         private void LoadBooks()
         {
             try
             {
                 // Get all books from the database
-                DataTable booksTable = clsBook.GetAllBook();
+                DataTable booksTable = clsMember.GetAllMember();
 
                 // Bind the DataTable to the DataGridView
-                guna2DataGridView1.DataSource = booksTable;
+                guna2DataGridView1.DataSource = booksTable.DefaultView;
             }
             catch (Exception ex)
             {
@@ -53,6 +52,7 @@ namespace LibraryManagmentSystem
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
+            LoadBooks();
 
         }
 
