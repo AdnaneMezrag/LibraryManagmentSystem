@@ -101,6 +101,9 @@ namespace Business_Layer{
         return clsLoanData.GetAllLoan();
 
     }
-
+    public static DataTable GetBooksStatistics()
+        {
+            return clsLoanData.GetBooksStatistics();
+        }
     }
 }

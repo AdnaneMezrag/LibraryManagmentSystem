@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business_Layer;
+using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +54,11 @@ namespace LibraryManagmentSystem
 
             // Show the StatisticsForm
             statisticsForm.Show();
+        }
+
+        private void Statistics_Load(object sender, EventArgs e)
+        {
+            guna2DataGridView1.DataSource = clsLoan.GetBooksStatistics();
         }
     }
 }

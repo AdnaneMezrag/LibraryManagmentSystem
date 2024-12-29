@@ -277,6 +277,52 @@ BookID = @BookID
             return dt;
 
         }
+    public static DataTable GetBooksStatistics()
+        {
 
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 
+    DATENAME(MONTH, LoanDate) AS Month,  -- Returns the month name (e.g., January)
+    COUNT(*) AS [Number Of Borrowing]
+FROM 
+    Loan
+GROUP BY 
+    DATENAME(MONTH, LoanDate), MONTH(LoanDate)  -- Grouping by both to preserve order
+ORDER BY 
+    MONTH(LoanDate);  -- Ensures chronological order
+";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
     }
 }
