@@ -44,6 +44,10 @@ namespace Business_Layer{
         this.Mode = enMode.Update;
 }
     private bool _AddNewLoan(){
+        if(clsBook.Find(BookID).Quantity == 0)
+            {
+                return false;
+            }
         this.LoanID = clsLoanData.AddNewLoan(this.LoanDate, this.IsReturned, this.ReturnDate, this.MemberID, this.BookID);
         return (this.LoanID != -1);
     }
@@ -105,5 +109,10 @@ namespace Business_Layer{
         {
             return clsLoanData.GetBooksStatistics();
         }
+    public static DataTable GetPopularBooks()
+    {
+        return clsLoanData.GetPopularBooks();
+    }
+
     }
 }

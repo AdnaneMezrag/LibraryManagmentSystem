@@ -20,7 +20,9 @@ namespace DataAccess_Layer{
         string query = @"INSERT INTO Loan ( 
                             LoanDate, IsReturned, ReturnDate, MemberID, BookID)
                             VALUES (@LoanDate, @IsReturned, @ReturnDate, @MemberID, @BookID);
-                            SELECT SCOPE_IDENTITY();";
+                            SELECT SCOPE_IDENTITY();
+update book set book.Quantity = book.Quantity - 1
+where bookid = @bookID;";
 
         SqlCommand command = new SqlCommand(query, connection);
 
@@ -324,5 +326,48 @@ ORDER BY
 
             return dt;
         }
+
+    public static DataTable GetPopularBooks()
+    {
+
+        DataTable dt = new DataTable();
+        SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+        string query = @"select BookID as [Book ID] , count(*) as [Number Of Borrowing]
+from loan
+group by bookid order by [Number Of Borrowing] desc";
+
+        SqlCommand command = new SqlCommand(query, connection);
+
+        try
+        {
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+
+            {
+                dt.Load(reader);
+            }
+
+            reader.Close();
+
+
+        }
+
+        catch (Exception ex)
+        {
+            // Console.WriteLine("Error: " + ex.Message);
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        return dt;
+
+    }
+
     }
 }

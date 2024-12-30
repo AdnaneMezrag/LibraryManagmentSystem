@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace LibraryManagmentSystem
 
         private void PopularForm_Load(object sender, EventArgs e)
         {
-
+            guna2DataGridView1.DataSource = clsLoan.GetPopularBooks();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
