@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
+using System.Security.Cryptography.X509Certificates;
 using DataAccess_Layer;
 
 namespace Business_Layer{
@@ -44,7 +45,7 @@ namespace Business_Layer{
         this.Mode = enMode.Update;
 }
     private bool _AddNewLoan(){
-        if(clsBook.Find(BookID).Quantity == 0)
+        if(clsBook.Find(BookID).Quantity == 0 || IsBookBorrowedByMember(MemberID,BookID))
             {
                 return false;
             }
@@ -105,6 +106,8 @@ namespace Business_Layer{
         return clsLoanData.GetAllLoan();
 
     }
+        
+
     public static DataTable GetBooksStatistics()
         {
             return clsLoanData.GetBooksStatistics();
@@ -113,6 +116,19 @@ namespace Business_Layer{
     {
         return clsLoanData.GetPopularBooks();
     }
-
+    public static bool IsBookBorrowedByMember(int MemberID , int BookID )
+        {
+            return clsLoanData.IsBookBorrowedByMember(MemberID,BookID);
+        }
+    public static bool ReturnBook(int MemberID , int BookID)
+        {
+            if(clsLoanData.ReturnBook(MemberID, BookID))
+            {
+                clsBook book = clsBook.Find(BookID);
+                book.Quantity += 1;
+                return book.Save();
+            }
+            return false;
+        }
     }
 }

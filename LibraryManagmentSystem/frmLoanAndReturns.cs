@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,20 +52,46 @@ namespace LibraryManagmentSystem
             Loan.MemberID = int.Parse(txtMemberID.Text);
             Loan.ReturnDate = DateTime.MaxValue;
 
+            if(clsLoan.IsBookBorrowedByMember(Loan.MemberID, Loan.BookID))
+            {
+                MessageBox.Show("Error You Already Borrowed This Book Before And You Haven't Returned It Yet: ", "Loan Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if(clsBook.Find(Loan.BookID).Quantity == 0)
+            {
+                MessageBox.Show("Failed You can't borrow this book", "Loan Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (Loan.Save())
             {
-                MessageBox.Show("Success");
+                MessageBox.Show("You Successfully Borrowed This Book", "Loan Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Failed You can't borrow this book");
-
+                MessageBox.Show("Failed You can't borrow this book" ,"Loan Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void frmLoanAndReturns_Load(object sender, EventArgs e)
         {
             guna2DataGridView1.DataSource = clsLoan.GetAllLoan();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            int BookID = int.Parse(txtBookID.Text);
+            int MemberID = int.Parse(txtMemberID.Text);
+
+            if (clsLoan.ReturnBook(MemberID, BookID))
+            {
+                MessageBox.Show("You Successfully Returned This Book", "Return Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Failed You can't Return this book because either MemberID dosen't exist or BookID dosen't exist or the member didn't borrowed this book or has returned it already", "Return Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

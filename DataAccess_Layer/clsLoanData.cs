@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Security.Policy;
 using System.ComponentModel;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace DataAccess_Layer{
     public class clsLoanData
@@ -368,6 +369,73 @@ group by bookid order by [Number Of Borrowing] desc";
         return dt;
 
     }
+    public static bool IsBookBorrowedByMember(int MemberID , int BookID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"select Found = 1 from loan where bookid = @BookID 
+and MemberID = @MemberID and IsReturned = 0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@MemberID", MemberID);
+            command.Parameters.AddWithValue("@BookID", BookID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+    public static bool ReturnBook(int MemberID , int BookID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"update loan set isReturned = 1 , ReturnDate = GETDATE() 
+where MemberID = @MemberID and bookid = @BookID and IsReturned = 0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@MemberID", MemberID);
+            command.Parameters.AddWithValue("@BookID", BookID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
 
     }
 }
