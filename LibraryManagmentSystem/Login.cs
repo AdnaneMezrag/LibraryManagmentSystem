@@ -50,7 +50,7 @@ namespace LibraryManagmentSystem
             {
                 MessageBox.Show($"{txtUsername.Text} is a valid integer!", "Integer Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                
             }
             if (clsMember.Find(MemberID, txtPassword.Text) != null)
             {

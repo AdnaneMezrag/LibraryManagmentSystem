@@ -18,15 +18,27 @@ namespace LibraryManagmentSystem
             InitializeComponent();
 
         }
+
+        string searched_book="";
         private void LoadBooks()
         {
             try
             {
                 // Get all books from the database
-                DataTable booksTable = clsMember.GetAllMember();
+                DataTable booksTable = clsBook.GetAllBook();
+
+                if (clsBook.canConnect())
+                {
+                    MessageBox.Show("CanConnect");
+
+                }
+
 
                 // Bind the DataTable to the DataGridView
                 guna2DataGridView1.DataSource = booksTable.DefaultView;
+                guna2DataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                guna2DataGridView1.Refresh();
+
             }
             catch (Exception ex)
             {
@@ -37,7 +49,7 @@ namespace LibraryManagmentSystem
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-
+           searched_book = guna2TextBox1.Text;
         }
 
         private void guna2TextBox2_TextChanged(object sender, EventArgs e)
@@ -53,6 +65,14 @@ namespace LibraryManagmentSystem
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             LoadBooks();
+
+            // Initially make the DataGridView read-only (disable editing, sorting, etc.)
+            guna2DataGridView1.ReadOnly = true;
+            guna2DataGridView1.AllowUserToAddRows = false;
+            guna2DataGridView1.AllowUserToDeleteRows = false;
+            guna2DataGridView1.AllowUserToOrderColumns = false;
+            guna2DataGridView1.AutoResizeColumns();
+
 
         }
 
@@ -116,7 +136,15 @@ namespace LibraryManagmentSystem
             // Show the StatisticsForm
             statisticsForm.Show();
         }
+        //the Search Button Logic
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            //LoadBooks();
 
-        
+            MessageBox.Show("UnImplemented");
+
+            
+
+        }
     }
 }

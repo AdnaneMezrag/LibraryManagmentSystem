@@ -16,7 +16,7 @@ namespace LibraryManagmentSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLoanAndReturns());
+            Application.Run(new DashboardForm());
             
 
         }
