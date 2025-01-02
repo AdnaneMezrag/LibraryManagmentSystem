@@ -130,5 +130,9 @@ namespace Business_Layer{
             }
             return false;
         }
+    public static DataTable GetOverdueMembers()
+        {
+            return clsLoanData.GetOverdueMembers();
+        }
     }
 }

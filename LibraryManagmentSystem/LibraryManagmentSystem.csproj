@@ -58,11 +58,29 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddMember.Designer.cs">
+      <DependentUpon>frmAddMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoanAndReturns.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLoanAndReturns.Designer.cs">
       <DependentUpon>frmLoanAndReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOverdueMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOverdueMembers.Designer.cs">
+      <DependentUpon>frmOverdueMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubscriptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubscriptions.Designer.cs">
+      <DependentUpon>frmSubscriptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -87,8 +105,17 @@
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddMember.resx">
+      <DependentUpon>frmAddMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoanAndReturns.resx">
       <DependentUpon>frmLoanAndReturns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOverdueMembers.resx">
+      <DependentUpon>frmOverdueMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubscriptions.resx">
+      <DependentUpon>frmSubscriptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

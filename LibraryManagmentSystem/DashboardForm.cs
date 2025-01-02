@@ -27,17 +27,11 @@ namespace LibraryManagmentSystem
                 // Get all books from the database
                 DataTable booksTable = clsBook.GetAllBook();
 
-                if (clsBook.canConnect())
-                {
-                    MessageBox.Show("CanConnect");
-
-                }
-
 
                 // Bind the DataTable to the DataGridView
-                guna2DataGridView1.DataSource = booksTable.DefaultView;
-                guna2DataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                guna2DataGridView1.Refresh();
+                guna2DataGridView2.DataSource = booksTable.DefaultView;
+                guna2DataGridView2.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                guna2DataGridView2.Refresh();
 
             }
             catch (Exception ex)
@@ -64,19 +58,20 @@ namespace LibraryManagmentSystem
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
+
             LoadBooks();
 
             // Initially make the DataGridView read-only (disable editing, sorting, etc.)
-            guna2DataGridView1.ReadOnly = true;
-            guna2DataGridView1.AllowUserToAddRows = false;
-            guna2DataGridView1.AllowUserToDeleteRows = false;
-            guna2DataGridView1.AllowUserToOrderColumns = false;
-            guna2DataGridView1.AutoResizeColumns();
+            guna2DataGridView2.ReadOnly = true;
+            guna2DataGridView2.AllowUserToAddRows = false;
+            guna2DataGridView2.AllowUserToDeleteRows = false;
+            guna2DataGridView2.AllowUserToOrderColumns = false;
+            guna2DataGridView2.AutoResizeColumns();
 
 
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -100,41 +95,17 @@ namespace LibraryManagmentSystem
         {
 
         }
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            // Create an instance of DashboardForm
-            DashboardForm dashboardForm = new DashboardForm();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the DashboardForm
-            dashboardForm.Show();
-
-        }
 
         private void btnPopular_Click(object sender, EventArgs e)
         {
-            // Create an instance of PopularForm
             PopularForm popularForm = new PopularForm();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the PopularForm
-            popularForm.Show();
+            popularForm.ShowDialog();
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            // Create an instance of StatisticsForm
-            Statistics statisticsForm = new Statistics();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the StatisticsForm
-            statisticsForm.Show();
+            Statistics statistics = new Statistics();
+            statistics.ShowDialog();
         }
         //the Search Button Logic
         private void guna2Button1_Click_1(object sender, EventArgs e)
@@ -145,6 +116,24 @@ namespace LibraryManagmentSystem
 
             
 
+        }
+
+        private void guna2Button1_Click_2(object sender, EventArgs e)
+        {
+            frmAddMember frmAddMember = new frmAddMember();
+            frmAddMember.ShowDialog();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            frmLoanAndReturns frmLoanAndReturns = new frmLoanAndReturns();
+            frmLoanAndReturns.ShowDialog();
+        }
+
+        private void guna2Button3_Click_1(object sender, EventArgs e)
+        {
+            frmSubscriptions frm = new frmSubscriptions();
+            frm.ShowDialog();
         }
     }
 }

@@ -19,46 +19,21 @@ namespace LibraryManagmentSystem
             InitializeComponent();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            // Create an instance of DashboardForm
-            DashboardForm dashboardForm = new DashboardForm();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the DashboardForm
-            dashboardForm.Show();
-
-        }
-
-        private void btnPopular_Click(object sender, EventArgs e)
-        {
-            // Create an instance of PopularForm
-            PopularForm popularForm = new PopularForm();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the PopularForm
-            popularForm.Show();
-        }
-
-        private void btnStatistics_Click(object sender, EventArgs e)
-        {
-            // Create an instance of StatisticsForm
-            Statistics statisticsForm = new Statistics();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the StatisticsForm
-            statisticsForm.Show();
-        }
-
         private void Statistics_Load(object sender, EventArgs e)
         {
-            guna2DataGridView1.DataSource = clsLoan.GetBooksStatistics();
+            guna2DataGridView2.DataSource = clsLoan.GetBooksStatistics();
+        }
+
+        private void btnPopular_Click_1(object sender, EventArgs e)
+        {
+            PopularForm popularForm = new PopularForm();
+            popularForm.ShowDialog();
+        }
+
+        private void btnStatistics_Click_1(object sender, EventArgs e)
+        {
+            DashboardForm DashboardForm = new DashboardForm();
+            DashboardForm.ShowDialog();
         }
     }
 }

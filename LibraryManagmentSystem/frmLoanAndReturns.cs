@@ -76,7 +76,7 @@ namespace LibraryManagmentSystem
 
         private void frmLoanAndReturns_Load(object sender, EventArgs e)
         {
-            guna2DataGridView1.DataSource = clsLoan.GetAllLoan();
+            guna2DataGridView2.DataSource = clsLoan.GetAllLoan();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

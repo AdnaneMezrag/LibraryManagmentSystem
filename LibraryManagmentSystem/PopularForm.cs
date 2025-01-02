@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.WebSockets;
 using System.Windows.Forms;
 
 namespace LibraryManagmentSystem
@@ -20,44 +21,20 @@ namespace LibraryManagmentSystem
 
         private void PopularForm_Load(object sender, EventArgs e)
         {
-            guna2DataGridView1.DataSource = clsLoan.GetPopularBooks();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            // Create an instance of DashboardForm
-            DashboardForm dashboardForm = new DashboardForm();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the DashboardForm
-            dashboardForm.Show();
-
+            guna2DataGridView2.DataSource = clsLoan.GetPopularBooks();
         }
 
         private void btnPopular_Click(object sender, EventArgs e)
         {
-            // Create an instance of PopularForm
-            PopularForm popularForm = new PopularForm();
+            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm.ShowDialog();
 
-            // Hide the current form
-            this.Hide();
-
-            // Show the PopularForm
-            popularForm.Show();
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            // Create an instance of StatisticsForm
-            Statistics statisticsForm = new Statistics();
-
-            // Hide the current form
-            this.Hide();
-
-            // Show the StatisticsForm
-            statisticsForm.Show();
+            Statistics statistics = new Statistics();
+            statistics.ShowDialog();
         }
 
         

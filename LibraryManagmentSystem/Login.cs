@@ -34,6 +34,8 @@ namespace LibraryManagmentSystem
             {
                 DashboardForm dashboardForm = new DashboardForm();
                 //this.Hide();
+                frmOverdueMembers frmOverdueMembers = new frmOverdueMembers();
+                frmOverdueMembers.ShowDialog();
                 dashboardForm.ShowDialog();
                 //this.Show();
             }
@@ -46,13 +48,14 @@ namespace LibraryManagmentSystem
         private void MemeberLogin()
         {
 
-            if (int.TryParse(txtUsername.Text, out int MemberID))
+            if (!int.TryParse(txtUsername.Text, out int MemberID))
             {
-                MessageBox.Show($"{txtUsername.Text} is a valid integer!", "Integer Error", 
+                MessageBox.Show($"{txtUsername.Text} is not a valid integer!", "Integer Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
                 
             }
-            if (clsMember.Find(MemberID, txtPassword.Text) != null)
+            if (clsMember.Find(MemberID, txtPassword.Text.ToString()) != null)
             {
                 MessageBox.Show($"Member Screen Will Be Implemented Soon", "Not Implemented Yet",
     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,6 +85,12 @@ namespace LibraryManagmentSystem
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            frmAddMember frmAddMember = new frmAddMember();
+            frmAddMember.ShowDialog();
         }
     }
 }
